@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Apartment Price Contract</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap" rel="stylesheet">
+    <style>
+      label {
+        display: block;
+      }
+      body {
+        font-family: 'Heebo Light', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login">
+      <h1>Apartment Price Contract</h1>
+      <h2>Enter the Apartment data:</h2>
+      <form id="measurement-form" action="{{url_for('predict')}}" method="post">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city"><br><br>
+
+        <label for="street">Street:</label>
+        <input type="text" id="street" name="street"><br><br>
+
+        <label for="Area">Area:</label>
+        <input type="text" id="Area" name="Area"><br><br>
+
+        <label for="type1">Type:</label>
+        <input type="text" id="type1" name="type1"><br><br>
+
+        <label for="num_of_images">Number of Images:</label>
+        <input type="text" id="num_of_images" name="num_of_images"><br><br>
+
+        <label for="room_number">Room Number:</label>
+        <input type="text" id="room_number" name="room_number"><br><br>
+
+        <label for="floor">Floor:</label>
+        <input type="text" id="floor" name="floor"><br><br>
+
+        <label for="condition">Condition:</label>
+        <select name="condition" id="condition">
+          <option value="save">שמור</option>
+          <option value="renovation">משופץ</option>
+          <option value="Requires_renovation">דרוש שיפוץ</option>
+          <option value="old">ישן</option>
+          <option value="Not_mentioned">אחר</option>
+        </select><br><br>
+
+        <label for="furniture">Furniture:</label>
+        <select name="furniture" id="furniture">
+          <option value="0">אין</option>
+          <option value="2">חלקי</option>
+          <option value="3">מלא</option>
+          <option value="1">אחר</option>
+        </select><br><br>
+
+        <label for="hasParking">
+        <input type="checkbox" id="hasParking" name="hasParking" > has Parking</label><br>
+
+        <label for="hasBars">
+        <input type="checkbox" id="hasBars" name="hasBars" > has Bars</label><br>
+
+        <label for="hasAirCondition"> 
+        <input type="checkbox" id="hasAirCondition" name="hasAirCondition" > has AirCondition</label><br>
+
+        <label for="hasBalcony">
+        <input type="checkbox" id="hasBalcony" name="hasBalcony" > has Balcony</label><br>
+
+        <label for="hasMamad">
+        <input type="checkbox" id="hasMamad" name="hasMamad" /> has Mamad</label><br>
+        <button type="submit" class="btn btn-primary px-5" ">Predict price</button>		  
+      </form>
+      <h2>THE PRICE WILL BE:</h2>
+      <h4>{{prediction_text}}</h4>
+    </div>
+  </body>
+</html>
